@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('id_gudang');
             $table->char('nama_barang');
             $table->char('jenis_barang');
-            $table->char('jumlah_stok');
+            $table->integer('jumlah_stok');    
             $table->timestamps();
         });
     }

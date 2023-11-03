@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('gudang', function (Blueprint $table) {
             $table->id();
-            $table->char('id_gudang');
             $table->char('nama_gudang');
             $table->bigInteger('stok_barang'); 
             $table->timestamps();

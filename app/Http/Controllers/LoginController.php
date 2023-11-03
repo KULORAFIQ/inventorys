@@ -27,8 +27,11 @@ class LoginController extends Controller
         if (Auth::attempt($info)) {
             if (Auth::user()->level == 'admin') {
                 return redirect('admindash')->with('loginberhasil', 'Login berhasil!!');
-            } elseif (Auth::user()->level == 'suppliyer') { // Perbaiki 'supliyer' menjadi 'supplier'
-                return redirect('suppliyerdash');
+            } elseif (Auth::user()->level == 'petugas') {
+                // Pengguna berhasil login
+                // Set sesi 'name' dengan nama pengguna
+                session(['name' => Auth::user()->name]);
+                return redirect('petugasdash')->with('loginberhasil', 'Login berhasil!!');;
             }
         }
 

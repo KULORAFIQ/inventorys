@@ -11,7 +11,13 @@ class Gudang extends Model
     protected $guarded = ['id'];
     protected $table = 'gudang';
 
-
+    protected $fillable = ['nama_gudang', 'stok_barang'];
+    
+    // Metode aksesornya
+    public function getStokGudangAttribute()
+    {
+        return $this->stok_barang + $this->jumlah_stok;
+    }
 
 public function barangs()
 {
